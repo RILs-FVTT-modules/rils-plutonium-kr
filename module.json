@@ -1,0 +1,40 @@
+{
+  "id": "rils-plutonium-kr",
+  "title": "RILs Plutonium KR",
+  "description": "Korean translation for Plutonium UI, powered by Babele.",
+  "version": "1.0.0",
+  "manifest": "https://github.com/RILs-FVTT-modules/rils-plutonium-kr/releases/latest/download/module.json",
+  "download": "https://github.com/RILs-FVTT-modules/rils-plutonium-kr/releases/download/v1.0.0/module.zip",
+  "authors": [
+    {
+      "name": "RestInLOV3"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "ko",
+      "name": "한국어",
+      "path": "languages/ko.json"
+    }
+  ],
+  "esmodules": [
+    "scripts/babele-register.js",
+    "scripts/patcher.js"
+  ],
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.351"
+  },
+  "relationships": {
+    "requires": [
+      {
+        "id": "babele",
+        "type": "module"
+      },
+      {
+        "id": "plutonium",
+        "type": "module"
+      }
+    ]
+  }
+}

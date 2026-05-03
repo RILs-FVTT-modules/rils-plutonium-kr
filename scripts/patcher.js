@@ -3,7 +3,7 @@
 //  Plutonium UI를 한국어로 DOM 패치합니다.
 // ============================================================
 
-import { UI, ABILITIES, SKILLS, CLASSES, SUBCLASSES, FEATURES, FEATS, WEAPONS, PATTERNS } from "./translations.js";
+import { UI, ABILITIES, SKILLS, CLASSES, SUBCLASSES, FEATURES, FEATS, WEAPONS, LANGUAGES, BACKGROUNDS, PATTERNS } from "./translations.js";
 
 // 모든 사전식 번역을 하나로 합칩니다
 const ALL = {
@@ -15,6 +15,8 @@ const ALL = {
   ...FEATURES,
   ...FEATS,
   ...WEAPONS,
+  ...LANGUAGES,
+  ...BACKGROUNDS,
 };
 
 // ----------------------------------------------------------

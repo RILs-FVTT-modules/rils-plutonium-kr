@@ -108,6 +108,7 @@ export const UI = {
   "Choose a Fighting Style": "전투 유파 선택",
   "Fighting Style": "전투 유파",
   "Choose Item — Martial Weapon": "아이템 선택 — 군용 무기",
+  "Choose Item — Simple Weapon": "아이템 선택 — 단순 무기",
 };
 
 // ----------------------------------------------------------
@@ -163,7 +164,7 @@ export const SKILLS = {
   Investigation: "수사",
   Medicine: "의학",
   Nature: "자연학",
-  Perception: "지각",
+  Perception: "감지",
   Performance: "공연",
   Persuasion: "설득",
   Religion: "종교학",
@@ -182,7 +183,7 @@ export const SKILLS = {
   "Investigation (Int)": "수사 (지능)",
   "Medicine (Wis)": "의학 (지혜)",
   "Nature (Int)": "자연학 (지능)",
-  "Perception (Wis)": "지각 (지혜)",
+  "Perception (Wis)": "감지 (지혜)",
   "Performance (Cha)": "공연 (매력)",
   "Persuasion (Cha)": "설득 (매력)",
   "Religion (Int)": "종교학 (지능)",
@@ -207,7 +208,7 @@ export const CLASSES = {
   Rogue: "로그",
   Sorcerer: "소서러",
   Warlock: "워락",
-  Wizard: "위자드",
+  Wizard: "위저드",
 };
 
 // ----------------------------------------------------------
@@ -537,6 +538,23 @@ export const FEATS = {
 //  무기
 // ----------------------------------------------------------
 export const WEAPONS = {
+  // 단순 무기 (Simple Weapons)
+  Club: "곤봉 Club",
+  Dagger: "단검 Dagger",
+  Dart: "다트 Dart",
+  Greatclub: "대형 곤봉 Greatclub",
+  Handaxe: "손도끼 Handaxe",
+  Javelin: "투창 Javelin",
+  "Light crossbow": "경석궁 Light crossbow",
+  "Light hammer": "경량 망치 Light hammer",
+  Mace: "철퇴 Mace",
+  Quarterstaff: "육척봉 Quarterstaff",
+  Shortbow: "단궁 Shortbow",
+  Sickle: "낫 Sickle",
+  Sling: "투석구 Sling",
+  Spear: "창 Spear",
+  Yklwa: "이클와 Yklwa",
+
   // 군용 무기 (Martial Weapons)
   Battleaxe: "전투 도끼 Battleaxe",
   Blowgun: "취관 Blowgun",
@@ -566,9 +584,65 @@ export const WEAPONS = {
 };
 
 // ----------------------------------------------------------
+//  언어 목록
+// ----------------------------------------------------------
+export const LANGUAGES = {
+  Common: "공용어",
+  Dwarvish: "드워프어",
+  Elvish: "엘프어",
+  Giant: "거인어",
+  Gnomish: "노움어",
+  Goblin: "고블린어",
+  Halfling: "하플링어",
+  Orc: "오크어",
+  Sylvan: "삼림어",
+  Abyssal: "심연어",
+  Draconic: "용언",
+  Primordial: "원시어",
+  "Deep Speech": "지저어",
+  Undercommon: "지하공용어",
+  Celestial: "천상어",
+  Infernal: "하계어",
+};
+
+// ----------------------------------------------------------
+//  배경 목록
+// ----------------------------------------------------------
+export const BACKGROUNDS = {
+  Acolyte: "복사",
+  Charlatan: "사기꾼",
+  Criminal: "범죄자",
+  Entertainer: "예능인",
+  "Folk Hero": "시골영웅",
+  Hermit: "은둔자",
+  Noble: "귀족",
+  Outlander: "이방인",
+  Sage: "학자",
+  Sailor: "선원",
+  Soldier: "군인",
+  Urchin: "부랑아",
+};
+
+// ----------------------------------------------------------
 //  정규식 기반 패턴 (숫자 등 동적 텍스트)
 // ----------------------------------------------------------
 export const PATTERNS = [
+  {
+    // "Choose one/two Language Proficiency/Proficiencies:"
+    regex:
+      /^Choose (one|two|three|four|five|six) Language Proficien(cy|cies):?$/i,
+    fn: (m) => {
+      const numMap = {
+        one: "하나의",
+        two: "두 가지",
+        three: "세 가지",
+        four: "네 가지",
+        five: "다섯 가지",
+        six: "여섯 가지",
+      };
+      return `${numMap[m[1].toLowerCase()] ?? m[1]} 언어 숙련을 선택하세요:`;
+    },
+  },
   {
     // "Choose two Skill Proficiencies:" 등 숫자가 다른 경우
     regex: /^Choose (one|two|three|four|five|six) Skill Proficien(cy|cies):$/i,
